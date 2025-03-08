@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+import { Postcard } from './components/postcard';
 function App() {
 
   const initialPosts = [
@@ -30,9 +27,13 @@ function App() {
   ];
 
   return (
-    <>
-      
-    </>
+  <div className='grid-cols-2 grid-rows-4 gap-5 '>
+    {
+      initialPosts.map((post)=>(
+        <Postcard key={post.id} img={post.profileImage} name={post.username} content={post.content} isLiked={post.isLiked} />
+      ))
+    }
+  </div>
   )
 }
 
